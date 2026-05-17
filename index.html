@@ -4,253 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Нумерологический портал | Тайны даты рождения</title>
-    <!-- Google Fonts: красивые мистические шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: linear-gradient(145deg, #fdf8f0 0%, #f9ede0 100%);
+            background: #2a1f1a;
             font-family: 'Raleway', sans-serif;
-            color: #4a3b2c;
-            scroll-behavior: smooth;
+            color: #f0e2d4;
+            min-height: 100vh;
+            position: relative;
         }
-
-        /* мистический бежево-розовый акцент */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px 24px 40px;
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(180, 110, 90, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(200, 130, 100, 0.12) 0%, transparent 55%),
+                repeating-linear-gradient(45deg, rgba(255, 215, 190, 0.02) 0px, rgba(255, 215, 190, 0.02) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+            z-index: 0;
         }
-
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px 24px 40px; position: relative; z-index: 1; }
+        
         /* шапка */
         .header {
             text-align: center;
-            padding: 40px 20px 30px;
-            border-bottom: 2px solid #ecd9c6;
-            margin-bottom: 40px;
-            background: rgba(255, 245, 235, 0.6);
-            border-radius: 80px 80px 40px 40px;
-            backdrop-filter: blur(2px);
+            padding: 45px 20px 35px;
+            background: rgba(30, 20, 15, 0.55);
+            backdrop-filter: blur(8px);
+            border-radius: 100px 100px 50px 50px;
+            margin-bottom: 45px;
+            border: 1px solid rgba(180, 120, 90, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #b27d60;
-            text-shadow: 3px 3px 12px rgba(160, 100, 70, 0.1);
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f3cfb5, #e7b69a, #c2835e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
             letter-spacing: 2px;
         }
-        .header p {
-            font-size: 1.2rem;
-            color: #9b7b64;
-            margin-top: 12px;
-            font-style: italic;
-        }
-
-        /* панель кнопок навигации */
-        .nav-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 50px;
-        }
+        .header p { font-size: 1.2rem; color: #ddbc9f; margin-top: 12px; font-style: italic; }
+        
+        /* кнопки навигации */
+        .nav-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-bottom: 55px; }
         .nav-btn {
-            background: #f7e6db;
+            background: linear-gradient(145deg, #4a2e24, #361f17);
             border: none;
-            padding: 14px 32px;
+            padding: 14px 34px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             font-family: 'Raleway', sans-serif;
-            color: #7a5a48;
+            color: #f2d9ca;
             border-radius: 60px;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 5px 12px rgba(139, 85, 55, 0.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+            letter-spacing: 1px;
             backdrop-filter: blur(4px);
-            letter-spacing: 0.5px;
+            border: 1px solid rgba(170, 110, 75, 0.5);
         }
         .nav-btn:hover {
-            background: #dbbc9f;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(110, 60, 30, 0.2);
+            background: linear-gradient(145deg, #6b3f2e, #4e2c1f);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 24px rgba(0,0,0,0.4);
+            color: #fff;
+            border-color: #b87a58;
         }
         .nav-btn.active {
-            background: #c69c7a;
+            background: linear-gradient(145deg, #7e4b36, #5a3221);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.4);
             color: white;
-            box-shadow: 0 6px 14px rgba(100, 55, 30, 0.3);
+            border-color: #d19770;
         }
-
-        /* карточки калькуляторов */
+        
+        /* панели калькуляторов */
         .calculator-panel {
             display: none;
-            background: rgba(255, 250, 245, 0.85);
-            backdrop-filter: blur(3px);
-            border-radius: 56px;
-            padding: 30px 28px;
-            margin-top: 20px;
-            box-shadow: 0 20px 35px rgba(80, 50, 30, 0.08);
-            border: 1px solid #f3e3d5;
+            background: rgba(25, 18, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 48px;
+            padding: 35px 32px;
+            border: 1px solid rgba(200, 140, 105, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .calculator-panel.active-panel {
-            display: block;
-        }
+        .calculator-panel.active-panel { display: block; }
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #b27d60;
-            margin-bottom: 20px;
-            border-left: 5px solid #eacfbb;
-            padding-left: 20px;
+            font-size: 2.2rem;
+            color: #eacdb6;
+            margin-bottom: 25px;
+            border-left: 5px solid #bc8262;
+            padding-left: 22px;
         }
-        .input-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: flex-end;
-            margin: 25px 0;
-        }
-        .input-field {
-            flex: 1;
-            min-width: 200px;
-        }
-        .input-field label {
-            font-weight: 600;
-            color: #8f6a51;
-            display: block;
-            margin-bottom: 8px;
-        }
+        .input-group { display: flex; flex-wrap: wrap; gap: 25px; align-items: flex-end; margin: 30px 0; }
+        .input-field { flex: 1; min-width: 200px; }
+        .input-field label { font-weight: 600; color: #e2c7b2; display: block; margin-bottom: 10px; letter-spacing: 0.5px; }
         input {
             width: 100%;
-            padding: 14px 18px;
-            border-radius: 48px;
-            border: 1px solid #eedbcb;
-            background: white;
+            padding: 14px 20px;
+            border-radius: 44px;
+            border: 1px solid #7e5540;
+            background: #1e1410;
+            color: #f7e6db;
             font-family: 'Raleway', monospace;
             font-size: 1rem;
             transition: 0.2s;
         }
-        input:focus {
-            outline: none;
-            border-color: #c69c7a;
-            box-shadow: 0 0 0 3px rgba(198, 156, 122, 0.2);
-        }
+        input:focus { outline: none; border-color: #cd9777; box-shadow: 0 0 0 3px rgba(205, 151, 119, 0.3); }
         button.calc-action, .pay-btn {
-            background: #dbb594;
+            background: linear-gradient(145deg, #5a3a2c, #3f281e);
             border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
+            padding: 13px 32px;
+            border-radius: 44px;
             font-weight: bold;
             font-size: 1rem;
-            color: white;
+            color: #f7e8dd;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 10px;
+            margin-top: 8px;
+            border: 1px solid #8f6248;
         }
         button.calc-action:hover, .pay-btn:hover {
-            background: #b47d5a;
+            background: linear-gradient(145deg, #76503c, #543a2b);
             transform: scale(0.97);
+            color: white;
         }
-
         .results-area {
-            background: #fff9f2;
+            background: rgba(15, 10, 8, 0.6);
             border-radius: 32px;
-            padding: 20px;
+            padding: 24px;
             margin: 25px 0;
-            border: 1px solid #f0dfd0;
+            border: 1px solid #7a5743;
         }
-        .result-block {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-bottom: 1px dashed #ecd9c6;
-        }
-        .locked-info {
-            filter: blur(5px);
-            background: #fcf2e8;
-            user-select: none;
-            pointer-events: none;
-            transition: 0.2s;
-        }
-        .unlocked-info {
-            filter: blur(0);
-            pointer-events: auto;
-        }
-        .pay-section {
-            text-align: center;
-            margin: 20px 0;
-        }
+        .result-block { margin-bottom: 18px; padding: 8px; border-bottom: 1px dashed #735540; }
+        .flex-chakras { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+        .chakra-item { background: #3d2a20; padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; border-left: 3px solid #be7a55; }
+        .locked-info { filter: blur(5px); background: #2f211b; user-select: none; pointer-events: none; transition: 0.2s; }
+        .unlocked-info { filter: blur(0); pointer-events: auto; }
+        .pay-section { text-align: center; margin: 28px 0; }
         .consult-btn {
-            background: #b18b6e;
+            background: #8b5a42;
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 28px;
-            border-radius: 40px;
+            padding: 12px 30px;
+            border-radius: 44px;
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: 0.2s;
         }
-        .consult-btn:hover {
-            background: #8a6246;
-        }
-        .offer-text {
-            font-size: 0.9rem;
-            color: #b4673e;
-            margin-bottom: 8px;
-        }
+        .consult-btn:hover { background: #aa765a; }
+        .offer-text { font-size: 0.9rem; color: #e2b48c; margin-bottom: 8px; }
         footer {
             margin-top: 70px;
             text-align: center;
             padding: 32px 20px;
-            border-top: 1px solid #ecd5c0;
+            border-top: 1px solid #6a4c3a;
             font-size: 0.9rem;
-            color: #a58269;
+            color: #cfa985;
         }
-        .flex-chakras {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 15px 0;
-        }
-        .chakra-item {
-            background: #f5e4d8;
-            padding: 8px 14px;
-            border-radius: 60px;
-            font-size: 0.85rem;
-        }
-        .telegram-link {
-            background: #e0cbb9;
-            border-radius: 60px;
-            padding: 8px 18px;
-            text-decoration: none;
-            color: #4a2e1e;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        button.small-pay {
-            background: #c99f7e;
-            font-size: 0.9rem;
-            padding: 8px 20px;
-        }
-        .card-item {
-            background: linear-gradient(135deg, #f9ede2, #faeedf);
-            padding: 20px;
-            border-radius: 48px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        @media (max-width: 680px) {
-            .header h1 { font-size: 1.9rem; }
-            .nav-btn { padding: 10px 20px; font-size: 0.9rem; }
-        }
+        .telegram-link { background: #5b3c2c; border-radius: 50px; padding: 8px 20px; text-decoration: none; color: #f6e2d2; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+        .card-item { background: linear-gradient(135deg, #34231c, #2a1c16); padding: 22px; border-radius: 48px; margin: 15px 0; text-align: center; border: 1px solid #a07156; }
+        @media (max-width: 680px) { .header h1 { font-size: 2rem; } .nav-btn { padding: 10px 20px; font-size: 0.85rem; } h2 { font-size: 1.6rem; } }
     </style>
 </head>
 <body>
@@ -259,259 +184,137 @@
         <h1>✨ Узнай тайны своей даты рождения ✨</h1>
         <p>Нумерология, чакры, судьба и предсказания</p>
     </div>
-
     <div class="nav-buttons">
-        <button class="nav-btn" data-tab="tab1">📆 Калькулятор</button>
+        <button class="nav-btn active" data-tab="tab1">📆 Калькулятор</button>
         <button class="nav-btn" data-tab="tab2">🤰 Калькулятор беременности</button>
         <button class="nav-btn" data-tab="tab3">💞 Калькулятор совместимости</button>
         <button class="nav-btn" data-tab="tab4">🃏 Карта дня</button>
     </div>
 
-    <!-- ========== 1. ОСНОВНОЙ КАЛЬКУЛЯТОР ========= -->
-    <div id="tab1" class="calculator-panel">
+    <!-- КАЛЬКУЛЯТОР ОСНОВНОЙ -->
+    <div id="tab1" class="calculator-panel active-panel">
         <h2>🌟 Нумерологический калькулятор</h2>
-        <div class="input-group">
-            <div class="input-field"><label>📅 Дата рождения</label><input type="date" id="birthMain"></div>
-            <button class="calc-action" id="calcMainBtn">Рассчитать показатели</button>
-        </div>
-        <div id="mainResults" class="results-area">
-            <div class="result-block"><strong>🔮 Типология:</strong> <span id="typeVal">—</span></div>
-            <div class="result-block"><strong>🌀 Чакры (проценты):</strong> <div id="chakrasVal" class="flex-chakras">—</div></div>
-            <div class="result-block"><strong>❤️ Сексуальный потенциал:</strong> <span id="sexPot">—</span></div>
-            <div class="result-block"><strong>🏛 Задача рода:</strong> <span id="rodTask">—</span></div>
-            <div class="result-block"><strong>🌙 Задача настоящего:</strong> <span id="nowTask">—</span></div>
-            <div class="result-block"><strong>🕰 Задача прошлого:</strong> <span id="pastTask">—</span></div>
-            <div class="result-block"><strong>📆 Периоды жизни:</strong> <span id="periodsLife">—</span></div>
-        </div>
-        <div id="payWallMain" class="pay-section">
-            <button class="pay-btn" data-type="main">🔓 Оплатить полную расшифровку (3500₽ → 5000₽)</button>
-            <p class="offer-text">* после оплаты откроются все значения, а также появится запись на консультацию</p>
-        </div>
-        <div id="consultBlockMain" style="display: none; text-align: center; margin-top: 15px;"></div>
+        <div class="input-group"><div class="input-field"><label>📅 Дата рождения</label><input type="date" id="birthMain"></div>
+        <button class="calc-action" id="calcMainBtn">Рассчитать показатели</button></div>
+        <div id="mainResults" class="results-area"><div id="mainResultsContent"></div></div>
+        <div id="payWallMain" class="pay-section"><button class="pay-btn" data-type="main">🔓 Оплатить полную расшифровку (3500₽ → 5000₽)</button><p class="offer-text">* после оплаты откроются все значения, консультация со скидкой</p></div>
+        <div id="consultBlockMain" style="display: none; text-align: center;"></div>
     </div>
 
-    <!-- ========== 2. БЕРЕМЕННОСТЬ ========= -->
-    <div id="tab2" class="calculator-panel">
-        <h2>🤱 Калькулятор беременности</h2>
+    <!-- БЕРЕМЕННОСТЬ -->
+    <div id="tab2" class="calculator-panel"><h2>🤱 Калькулятор беременности</h2>
         <div class="input-group"><div class="input-field"><label>📅 Ваша дата рождения</label><input type="date" id="birthPreg"></div>
         <button class="calc-action" id="calcPregBtn">Получить прогноз</button></div>
-        <div id="pregResults" class="results-area">
-            <div class="result-block"><strong>📈 Прогноз от 0 до 60 лет:</strong> <span id="lifeForecast">—</span></div>
-            <div class="result-block"><strong>🌙 Прогноз на текущий месяц:</strong> <span id="monthNow">—</span></div>
-            <div class="result-block"><strong>✨ Прогноз на будущий год:</strong> <span id="yearForecast">—</span></div>
-        </div>
+        <div id="pregResults" class="results-area"><div id="pregResultsContent"></div></div>
         <div id="payWallPreg" class="pay-section"><button class="pay-btn" data-type="preg">💎 Оплатить полный прогноз (3500₽)</button></div>
         <div id="afterPregBonus" style="display: none; text-align: center;"></div>
     </div>
 
-    <!-- ========== 3. СОВМЕСТИМОСТЬ ========= -->
-    <div id="tab3" class="calculator-panel">
-        <h2>💑 Калькулятор совместимости</h2>
+    <!-- СОВМЕСТИМОСТЬ -->
+    <div id="tab3" class="calculator-panel"><h2>💑 Калькулятор совместимости</h2>
         <div class="input-group"><div class="input-field"><label>👨 Дата мужчины</label><input type="date" id="birthMale"></div>
         <div class="input-field"><label>👩 Дата женщины</label><input type="date" id="birthFemale"></div>
         <button class="calc-action" id="calcCompatBtn">Рассчитать совместимость</button></div>
-        <div id="compatResults" class="results-area">
-            <div><strong>🧬 Типология мужчины:</strong> <span id="maleType">—</span> | <strong>Женщины:</strong> <span id="femaleType">—</span></div>
-            <div><strong>💫 Чакры мужчины:</strong> <div id="maleChakras" class="flex-chakras">—</div></div>
-            <div><strong>💫 Чакры женщины:</strong> <div id="femaleChakras" class="flex-chakras">—</div></div>
-            <div class="result-block"><strong>🎯 Задача пары (сумма типологий):</strong> <span id="pairMission">—</span></div>
-            <div class="result-block"><strong>⚔️ Испытание пары (разница):</strong> <span id="pairTrial">—</span></div>
-        </div>
+        <div id="compatResults" class="results-area"><div id="compatResultsContent"></div></div>
         <div id="payWallCompat" class="pay-section"><button class="pay-btn" data-type="compat">🔐 Открыть расшифровку пары (3500₽)</button></div>
     </div>
 
-    <!-- ========== 4. КАРТА ДНЯ ========= -->
-    <div id="tab4" class="calculator-panel">
-        <h2>🃏 Карта дня & Гайд «Личный Проноз»</h2>
+    <!-- КАРТА ДНЯ -->
+    <div id="tab4" class="calculator-panel"><h2>🃏 Карта дня & Гайд</h2>
         <button class="calc-action" id="drawCardBtn">✨ Вытянуть карту дня ✨</button>
         <div id="cardResult" class="card-item" style="margin-top:20px;"></div>
-        <div style="background:#f9efe5; border-radius: 40px; padding: 20px; margin-top: 20px; text-align:center;">
-            <p>✨✨✨ <strong>ГАЙД «Личный Проноз»</strong> ✨✨✨</p>
-            <p>Углубленная астрология + нумерология на год. Скидка по промокоду <strong>MYSTIC</strong></p>
-            <button class="pay-btn" style="background:#c28a64;" onclick="alert('Связь с автором: @vedic_numerolog (Telegram) для приобретения гайда')">📖 Приобрести гайд</button>
-        </div>
+        <div style="background:#2d1f18; border-radius: 40px; padding: 20px; margin-top: 20px; text-align:center;"><p>✨✨✨ <strong>ГАЙД «Личный Проноз»</strong> ✨✨✨</p><p>Углубленная астрология + нумерология на год.</p><button class="pay-btn" onclick="alert('Связь с автором: @vedic_numerolog (Telegram) для приобретения гайда')">📖 Приобрести гайд</button></div>
     </div>
-
-    <footer>
-        🌙 С любовью и тайнами | Мария | Канал «Нумерология Судьбы» | @mystic_numerolog 🌙
-    </footer>
+    <footer>🌙 С любовью и тайнами | Мария | Канал «Нумерология Судьбы» | @mystic_numerolog 🌙</footer>
 </div>
 
 <script>
-    // ------------------- БЛОК ДАННЫХ И РАСЧЁТОВ -------------------
-    // Функции получения числа судьбы/типологии (от 1 до 9)
-    function getLifePath(dt) {
-        let sum = dt.getFullYear() + (dt.getMonth()+1) + dt.getDate();
-        while(sum >= 10) sum = Math.floor(sum/10) + (sum%10);
-        return sum;
-    }
-    function getTypeology(dt) {
-        let num = getLifePath(dt);
-        const types = ["1-Лидер", "2-Миротворец", "3-Творец", "4-Созидатель", "5-Искатель", "6-Заботливый", "7-Мистик", "8-Властелин", "9-Филантроп"];
-        return types[num-1] || "Маг";
-    }
-    // Чакры (проценты) на основе дня/месяца + года для уникальности
-    function calcChakras(dt) {
-        let d = dt.getDate(), m = dt.getMonth()+1, y = dt.getFullYear();
-        let seed = (d * m + y) % 100;
-        let chakras = ["Муладхара","Свадхистана","Манипура","Анахата","Вишудха","Аджна"];
-        let values = [];
-        for(let i=0;i<6;i++) {
-            let val = ((seed + i * 13) % 71) + 20;
-            if(val>95) val=95;
-            values.push(`${chakras[i]}: ${val}%`);
-        }
-        return values;
-    }
-    function getSexualPotential(dt) { let v = (dt.getDate() * dt.getMonth() + 7) % 100; return `${Math.min(98,40+v)}%`; }
-    function getRodTask(dt) { let tasks=["Исцеление рода","Раскрытие талантов","Служение семье","Финансовая свобода","Мудрость предков"]; return tasks[dt.getDate()%5]; }
-    function getNowTask(dt) { let tasks=["Любовь к себе","Денежный поток","Созидание","Творчество","Баланс"]; return tasks[(dt.getMonth()+dt.getDate())%5]; }
-    function getPastTask(dt) { let tasks=["Отпустить обиды","Проработать карму","Исцелить внутреннего ребёнка","Прощение"]; return tasks[dt.getFullYear()%4]; }
-    function getPeriods(dt) { let age = new Date().getFullYear() - dt.getFullYear(); return `0-20: обучение, 20-40: рост, 40-60: мудрость, 60+: просветление`; }
+    // ------------------------------- ПОЛНЫЕ ДАННЫЕ ИЗ ФАЙЛОВ -------------------------------
+    // Психотипы (Типологии.docx)
+    const psychotypes = {
+        1: "Импульсор — природный катализатор перемен. Ваша естественная среда — движение и действие. Вы не ждёте внешних стимулов, а сами запускаете процессы. Сильные стороны: способность запускать масштабные процессы, оригинальность, инициативность. Зоны роста: прямолинейность, упрямство, импульсивность. Жизненная задача: направлять энергию осознанно, ценить мнение окружающих, находить гармонию между активностью и покоем.",
+        2: "Гармонизатор — природный настройщик баланса. Ваша миссия — тонко корректировать мир, возвращая гармонию. Сильные стороны: видеть ситуацию целиком, быстро анализировать, социальная адаптивность. Зоны роста: зависимость от одобрения, нерешительность, склонность к самопожертвованию. Жизненная задача: отделять дипломатичность от податливости, доверять себе, находить баланс.",
+        3: "Вдохновитель — источник света и энергии. Миссия — замечать пробелы и заполнять их творческими решениями. Сильные стороны: творческий потенциал, умение вдохновлять, гибкость мышления. Зоны роста: неустойчивость фокуса, зависимость от внимания, избегание рутины. Задача: превращать вдохновение в действие, выстраивать долгосрочные планы.",
+        4: "Строитель — прирождённый созидатель. Миссия — придавать форму идеям, создавать устойчивые системы. Сильные стороны: трудоспособность, структурирование, надёжность. Зоны роста: излишняя жёсткость, подозрительность, эмоциональная холодность. Задача: баланс материального и духовного, доверие к другим.",
+        5: "Авантюрист — живой двигатель прогресса. Миссия — инициировать перемены, отсеивать лишнее. Сильные стороны: способность дорабатывать решения, социальная гибкость, находчивость. Зоны роста: распыление энергии, импульсивность, излишняя критичность. Задача: выбирать приоритеты, развивать глубину мышления.",
+        6: "Наставник — прирожденный учитель. Миссия — превращать знания в дар. Сильные стороны: интуитивная мудрость, гуманизм, терпение. Зоны роста: неуверенность, зависимости, гордость. Задача: доверять интуиции, баланс заботы о других и себе.",
+        7: "Исследователь — искатель глубинных смыслов. Миссия — оживлять реальность через познание. Сильные стороны: тонкое восприятие, мощная интуиция, аналитический ум. Зоны роста: замкнутость, цинизм, потеря связи с реальностью. Задача: баланс духовного и земного.",
+        8: "Стратег — архитектор глобальных процессов. Миссия — задавать вектор развития. Сильные стороны: стратегическое видение, стойкость, лидерская воля. Зоны роста: перегрузка ответственностью, жёсткость, гордыня силы. Задача: баланс заботы о других и себе, использование власти во благо.",
+        9: "Проводник — многогранная личность. Миссия — менять мир к лучшему. Сильные стороны: универсальность, духовная глубина, целеустремлённость. Зоны роста: сомнения в себе, эмоциональная нестабильность, категоричность. Задача: верить в себя, управлять энергией."
+    };
+    // Чакры расшифровки (из Чакры.docx)
+    const chakraMeanings = {
+        Муладхара: { weak: "Постоянная тревога, страхи, проблемы с деньгами и телом. Важно работать над основой.", normal: "Спокойная уверенность, хороший тонус, умение зарабатывать.", strong: "Железное здоровье, финансовая устойчивость, но риск жадности." },
+        Свадхистана: { weak: "Апатия, непонимание желаний, подавленные эмоции.", normal: "Яркие чувства, здоровое сексуальное самовыражение.", strong: "Огромный творческий и сексуальный потенциал, харизма, но риск зависимостей." },
+        Манипура: { weak: "Безволие, неспособность сказать нет, проблемы с финансами.", normal: "Здоровая самооценка, умение ставить цели.", strong: "Несгибаемая воля, лидерство, но риск тирании." },
+        Анахата: { weak: "Холодность, недоверие, ощущение ненужности.", normal: "Доброта, умение дружить, сочувствие.", strong: "Безусловная любовь, дар целительства, но риск жертвенности." },
+        Вишудха: { weak: "Страх публичности, неумение формулировать мысли.", normal: "Ясная речь, умение слушать и говорить.", strong: "Магнетический голос, дар убеждения, но риск манипуляции." },
+        Аджна: { weak: "Недоверие к интуиции, приземленность.", normal: "Хорошая интуиция, умение схватывать суть.", strong: "Глубокая мудрость, ясновидение, но риск гордыни." }
+    };
+    // Задачи (род, прошлое, настоящее, родители) из файлов
+    const rodTasks = {1:"Телесная опора: крепкие физически предки. Ваша задача: не лежать на месте, разбираться со страхами.",2:"Семейное тепло: большие дружные семьи. Задача: строить сплочённый клан.",3:"Деньги и власть: богатые влиятельные люди. Задача: беречь и увеличивать богатство.",4:"Сердечная помощь: добрые терпеливые люди. Задача: открывать сердце, прощать.",5:"Голос и влияние: предки-артисты, судьи. Задача: идти в люди, реализовывать таланты.",6:"Мудрость и интеллект: учёные, изобретатели. Задача: всю жизнь учиться.",7:"Верхний духовный канал: верующие предки. Задача: качать интуицию.",8:"Нижний астральный канал: энергетически мощные. Задача: найти призвание.",9:"Высшее предназначение: гении. Задача: жить с открытыми глазами."};
+    const pastTasks = {1:"Телесная опора: вы много двигались. Рекомендация: регулярная физнагрузка.",2:"Семейное тепло: опыт в отношениях. Рекомендация: учитесь открыто говорить о чувствах.",3:"Деньги и воля: имели дело с деньгами. Рекомендация: финансовая грамотность.",4:"Сердечная помощь: работали с людьми. Рекомендация: бескорыстные добрые дела.",5:"Голос и общество: были социально активны. Рекомендация: выступления на публике.",6:"Интеллект: много изучали. Рекомендация: освойте новую тему.",7:"Духовный верх: продвинулись в эволюции. Рекомендация: духовная практика.",8:"Астральный низ: искали смысл жизни. Рекомендация: найдите глубинный смысл.",9:"Высшее предназначение: наработали таланты. Рекомендация: живите осознанно."};
+    const presentTasks = {1:"Настоящее — телесная опора: освоить терпение, займитесь телом.",2:"Настоящее — семейное тепло: научиться строить отношения.",3:"Настоящее — деньги и воля: развивать волю.",4:"Настоящее — сердечная помощь: учиться любви.",5:"Настоящее — голос и общество: свободно выражать себя.",6:"Настоящее — интеллект: познавать мир.",7:"Настоящее — духовный верх: разобраться с установками.",8:"Настоящее — астральный низ: постоянное саморазвитие.",9:"Настоящее — высшее предназначение: максимальная реализация."};
+    const parentsTasks = {1:"Родители — телесная опора: передали здоровье. Работайте над страхами.",2:"Родители — семейное тепло: научили ценить семью. Учитесь открыто говорить о чувствах.",3:"Родители — деньги и воля: привили силу духа. Ведите учёт доходов.",4:"Родители — сердечность: дарили тепло. Практикуйте добрые дела.",5:"Родители — голос и общество: развили творчество. Выступайте на публике.",6:"Родители — интеллект: развили ум. Осваивайте новое.",7:"Родители — духовный верх: привили интуицию. Практикуйте тишину.",8:"Родители — астральный низ: развили силу. Ищите смысл.",9:"Родители — высшее предназначение: помогли раскрыть тип. Ведите дневник."};
+    const periodsText = {0:"Период свободы: белый лист. Ставьте маленькие цели.",1:"Телесный: спорт, тело, агрессия в мирное русло.",2:"Чувственный: отношения, удовольствия, семья.",3:"Волевой и денежный: дисциплина, финансы.",4:"Сердечный: любовь, прощение, благодарность.",5:"Речевой и социальный: творчество, общение.",6:"Интеллектуальный: учёба, новые идеи.",7:"Духовный верх: медитация, интуиция.",8:"Смысловой: поиск предназначения.",9:"Кармический: пик, реализация талантов."};
+    const yinYangText = { yin: "Больше женского: мягкость, интуиция, восприятие.", yang: "Больше мужского: действие, воля, натиск.", equal: "Равновесие: внутренняя двуполость, гармония." };
+    const sexualText = { high: "Высокий СП: мощная энергия, притягательность, переизбыток сил.", low: "Низкий СП: тонкая чувствительность, нужно беречь энергию." };
 
-    // прогноз беременности (от 0 до 60 лет)
-    function getPregLifeForecast(dt) { let arr=[]; for(let i=0;i<=60;i+=10) arr.push(`${i} лет: ${(dt.getDate()+i*3)%100>70?"высокая вероятность событий":"нейтральный этап"}`); return arr.join('; '); }
-    function getMonthForecast(dt) { let now=new Date(); let m=now.getMonth(); return `Текущий месяц: ${m%2===0?"благоприятный для зачатия/планирования":"энергия пересмотра"}`; }
-    function getYearForecast(dt) { let nextYear=new Date().getFullYear()+1; return `${nextYear} год: мощный фертильный потенциал, звёзды советуют подготовку`; }
-
-    // совместимость: задача пары - сумма типологий (1-9), испытание - разница типологий (модуль)
-    function getTypeNumber(dt){ return getLifePath(dt); }
-    function getPairMission(maleDt,femaleDt){ let sum = getTypeNumber(maleDt)+getTypeNumber(femaleDt); while(sum>9) sum-=9; return `Число ${sum} - ${["","Единство","Сотрудничество","Творение","Стабильность","Свобода","Гармония","Глубина","Изобилие","Завершение"][sum]}`; }
-    function getPairTrial(maleDt,femaleDt){ let diff = Math.abs(getTypeNumber(maleDt)-getTypeNumber(femaleDt)); if(diff===0) diff=1; return `Испытание ${diff} - ${["","Эго","Конфликт воли","Недосказанность","Разные цели","Борьба за власть","Эмоц. качели","Закрытость","Контроль","Отчуждение"][diff]}`; }
-
-    // ---------- СОСТОЯНИЕ ОПЛАТ (имитация) ----------
-    let payments = { main: false, preg: false, compat: false };
-    function unlockSection(section) {
-        payments[section] = true;
-        if(section === 'main') {
-            document.querySelectorAll('#mainResults .result-block span').forEach(span => { span.classList?.remove('locked-info'); });
-            document.getElementById('consultBlockMain').style.display = 'block';
-            document.getElementById('consultBlockMain').innerHTML = `<div class="offer-text">✨ Хочешь детально разобраться в показателях? ✨</div>
-            <a class="consult-btn" href="https://t.me/vedic_numerolog" target="_blank">📲 Запись на консультацию со скидкой 3500₽ вместо 5000₽</a>`;
-        }
-        if(section === 'preg') {
-            document.getElementById('afterPregBonus').style.display = 'block';
-            document.getElementById('afterPregBonus').innerHTML = `<button id="blockBtnCheck" class="pay-btn small-pay">🔍 Узнай, есть ли блоки на беременность и как проработать</button>
-            <a id="fileDownloadBtn" href="#" style="display:inline-block; margin-left:15px;" class="telegram-link">📥 Скачать файл-руководство (PDF)</a>`;
-            document.getElementById('blockBtnCheck')?.addEventListener('click',()=>{ alert("Блоки на беременность: страхи, родовые сценарии. Рекомендуем медитации и чакральное очищение. За консультацией - в Telegram."); });
-            document.getElementById('fileDownloadBtn')?.addEventListener('click',(e)=>{ e.preventDefault(); alert("Скачивание файла: «Методика проработки фертильности». Ссылка для теста."); window.open("#","_blank"); });
-        }
-        if(section === 'compat') {
-            document.querySelectorAll('#compatResults span').forEach(span => { if(span.parentElement) span.classList?.remove('locked-info'); });
-            alert("Расшифровка совместимости открыта! Трактовки теперь полностью видны.");
-        }
+    // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+    function getLifePathNum(dt) { let d=dt.getDate(), m=dt.getMonth()+1, y=dt.getFullYear(); let s=d+m+y; while(s>9) s=Math.floor(s/10)+(s%10); return s; }
+    function getPsychotype(dt) { return psychotypes[getLifePathNum(dt)] || "Глубинная личность"; }
+    // упрощенные чакры для демо (в реальном проекте заменить на полную таблицу маркеров)
+    function getDemoChakras(dt) { let seed = dt.getDate()*dt.getMonth()+dt.getFullYear(); let names=["Муладхара","Свадхистана","Манипура","Анахата","Вишудха","Аджна"]; return names.map((n,i)=>`${n}: ${30+((seed+i*7)%70)}%`); }
+    function getYinYang(dt) { let val=dt.getDate()*7%100; if(val<33) return yinYangText.yin; if(val<66) return yinYangText.yang; return yinYangText.equal; }
+    function getSexual(dt) { let val=dt.getDate()*dt.getMonth()%100; return val>45 ? sexualText.high : sexualText.low; }
+    function getRodTaskNum(dt) { let s=dt.getDate()+dt.getMonth()+1; while(s>9) s=Math.floor(s/10)+(s%10); return s; }
+    function getPastTaskNum(dt) { let prod = (dt.getDate()*100+dt.getMonth()+1)*dt.getFullYear(); let firstDigit = parseInt(prod.toString()[0]); return firstDigit||1; }
+    function getPresentTaskNum(dt) { let prod = (dt.getDate()*100+dt.getMonth()+1)*dt.getFullYear(); let digits=prod.toString(); let first=parseInt(digits[0])||0, last=parseInt(digits[digits.length-1])||0; let s=first+last; while(s>9) s=Math.floor(s/10)+(s%10); return s||1; }
+    function getParentsTaskNum(rod,pres){ let s=rod+pres; while(s>9) s=Math.floor(s/10)+(s%10); return s; }
+    function getPeriodsStr(dt) { let prod = (dt.getDate()*100+dt.getMonth()+1)*dt.getFullYear(); let str=prod.toString().slice(1); let periods=[]; for(let i=0;i<Math.min(6,str.length);i++){ let num=parseInt(str[i])||0; periods.push(periodsText[num]||`Период ${num}`); } return periods.join(' → '); }
+    
+    // ОСНОВНОЙ КАЛЬКУЛЯТОР
+    function renderMain(birth){
+        if(!birth) return;
+        let psych = getPsychotype(birth);
+        let chakras = getDemoChakras(birth);
+        let yinyang = getYinYang(birth);
+        let sexual = getSexual(birth);
+        let rodNum = getRodTaskNum(birth);
+        let pastNum = getPastTaskNum(birth);
+        let presNum = getPresentTaskNum(birth);
+        let parentsNum = getParentsTaskNum(rodNum, presNum);
+        let periods = getPeriodsStr(birth);
+        let html = `<div class="result-block"><strong>🧠 Психотип:</strong> ${psych}</div>
+                    <div class="result-block"><strong>🌀 Чакры:</strong> <div class="flex-chakras">${chakras.map(c=>`<span class="chakra-item">${c}</span>`).join('')}</div></div>
+                    <div class="result-block"><strong>☯ Инь/Ян:</strong> ${yinyang}</div>
+                    <div class="result-block"><strong>❤️ Сексуальный потенциал:</strong> ${sexual}</div>
+                    <div class="result-block"><strong>🏛 Задача рода:</strong> ${rodNum} — ${rodTasks[rodNum]||'гармония'}</div>
+                    <div class="result-block"><strong>🕯 Задача прошлого:</strong> ${pastNum} — ${pastTasks[pastNum]||'урок'}</div>
+                    <div class="result-block"><strong>🌙 Задача настоящего:</strong> ${presNum} — ${presentTasks[presNum]||'развитие'}</div>
+                    <div class="result-block"><strong>👪 Задача родителей:</strong> ${parentsNum} — ${parentsTasks[parentsNum]||'связь'}</div>
+                    <div class="result-block"><strong>📆 Периоды жизни:</strong> ${periods}</div>`;
+        document.getElementById('mainResultsContent').innerHTML = html;
+        return { psych, chakras, yinyang, sexual, rodNum, pastNum, presNum, parentsNum, periods };
     }
-
-    // UI обновление расшифровок (блюр, если не оплачено)
-    function applyPaymentUIs() {
-        if(!payments.main) document.querySelectorAll('#mainResults .result-block span').forEach(span => { span.classList?.add('locked-info'); span.style.filter="blur(4px)"; });
-        if(payments.main) document.querySelectorAll('#mainResults .result-block span').forEach(span => { span.classList?.remove('locked-info'); span.style.filter="blur(0)"; });
-        if(!payments.preg) { document.getElementById('lifeForecast').style.filter="blur(4px)"; document.getElementById('monthNow').style.filter="blur(4px)"; document.getElementById('yearForecast').style.filter="blur(4px)"; }
-        if(payments.preg) { document.getElementById('lifeForecast').style.filter="blur(0)"; document.getElementById('monthNow').style.filter="blur(0)"; document.getElementById('yearForecast').style.filter="blur(0)"; }
-        if(!payments.compat) { document.querySelectorAll('#compatResults span, #compatResults div span').forEach(span => { if(span.style) span.style.filter="blur(4px)"; }); }
-        if(payments.compat) { document.querySelectorAll('#compatResults span, #compatResults div span').forEach(span => { span.style.filter="blur(0)"; }); }
+    function renderPreg(birth){ if(!birth) return; let html=`<div class="result-block"><strong>📈 Прогноз 0-60 лет:</strong> Благоприятные периоды для планирования семьи: 22-28 лет, 35-42 года.</div><div class="result-block"><strong>🌙 Текущий месяц:</strong> Энергия роста, слушайте тело.</div><div class="result-block"><strong>✨ Будущий год:</strong> Звёзды рекомендуют укрепить здоровье.</div>`; document.getElementById('pregResultsContent').innerHTML=html; }
+    function renderCompat(male,female){
+        if(!male||!female) return;
+        let mPsych=getPsychotype(male), fPsych=getPsychotype(female);
+        let mChak=getDemoChakras(male), fChak=getDemoChakras(female);
+        let mNum=getLifePathNum(male), fNum=getLifePathNum(female);
+        let sum=mNum+fNum; while(sum>9) sum-=9;
+        let diff=Math.abs(mNum-fNum); if(diff===0) diff=1;
+        let html=`<div><strong>🧬 Мужчина:</strong> ${mPsych}</div><div><strong>🧬 Женщина:</strong> ${fPsych}</div>
+                  <div><strong>🌀 Чакры мужчины:</strong> <div class="flex-chakras">${mChak.map(c=>`<span class="chakra-item">${c}</span>`).join('')}</div></div>
+                  <div><strong>🌀 Чакры женщины:</strong> <div class="flex-chakras">${fChak.map(c=>`<span class="chakra-item">${c}</span>`).join('')}</div></div>
+                  <div class="result-block"><strong>🎯 Задача пары:</strong> ${sum} — единение целей</div>
+                  <div class="result-block"><strong>⚔️ Испытание пары:</strong> ${diff} — преодоление различий</div>`;
+        document.getElementById('compatResultsContent').innerHTML=html;
     }
-    // функция обновления данных для главного калькулятора (отрисовка)
-    function renderMainCalc(birthDate) {
-        if(!birthDate) return;
-        let typ = getTypeology(birthDate);
-        let chakrasArr = calcChakras(birthDate);
-        document.getElementById('typeVal').innerText = typ;
-        document.getElementById('chakrasVal').innerHTML = chakrasArr.map(c=>`<span class="chakra-item">${c}</span>`).join('');
-        document.getElementById('sexPot').innerText = getSexualPotential(birthDate);
-        document.getElementById('rodTask').innerText = getRodTask(birthDate);
-        document.getElementById('nowTask').innerText = getNowTask(birthDate);
-        document.getElementById('pastTask').innerText = getPastTask(birthDate);
-        document.getElementById('periodsLife').innerText = getPeriods(birthDate);
-        if(!payments.main) {
-            let spans = document.querySelectorAll('#mainResults .result-block span');
-            spans.forEach(s=> { s.style.filter="blur(4px)"; s.style.display="inline-block"; });
-        } else { document.querySelectorAll('#mainResults .result-block span').forEach(s=>s.style.filter="blur(0)"); }
-    }
-    function renderPreg(birthDate) {
-        if(!birthDate) return;
-        document.getElementById('lifeForecast').innerText = getPregLifeForecast(birthDate);
-        document.getElementById('monthNow').innerText = getMonthForecast(birthDate);
-        document.getElementById('yearForecast').innerText = getYearForecast(birthDate);
-        if(!payments.preg) { 
-            document.getElementById('lifeForecast').style.filter="blur(4px)";
-            document.getElementById('monthNow').style.filter="blur(4px)";
-            document.getElementById('yearForecast').style.filter="blur(4px)";
-        } else { 
-            document.getElementById('lifeForecast').style.filter="blur(0)";
-            document.getElementById('monthNow').style.filter="blur(0)";
-            document.getElementById('yearForecast').style.filter="blur(0)";
-        }
-    }
-    function renderCompat(maleDt,femaleDt) {
-        if(!maleDt||!femaleDt) return;
-        let maleType = getTypeology(maleDt), femaleType = getTypeology(femaleDt);
-        let maleCh = calcChakras(maleDt), femaleCh = calcChakras(femaleDt);
-        document.getElementById('maleType').innerText = maleType;
-        document.getElementById('femaleType').innerText = femaleType;
-        document.getElementById('maleChakras').innerHTML = maleCh.map(c=>`<span class="chakra-item">${c}</span>`).join('');
-        document.getElementById('femaleChakras').innerHTML = femaleCh.map(c=>`<span class="chakra-item">${c}</span>`).join('');
-        document.getElementById('pairMission').innerText = getPairMission(maleDt,femaleDt);
-        document.getElementById('pairTrial').innerText = getPairTrial(maleDt,femaleDt);
-        if(!payments.compat) {
-            let allComp = document.querySelectorAll('#compatResults span, #compatResults .chakra-item');
-            allComp.forEach(el=>el.style.filter="blur(4px)");
-        } else {
-            let allComp = document.querySelectorAll('#compatResults span, #compatResults .chakra-item');
-            allComp.forEach(el=>el.style.filter="blur(0)");
-        }
-    }
-
-    // ----- EVENT LISTENERS -----
-    document.getElementById('calcMainBtn').addEventListener('click',()=>{
-        let val = document.getElementById('birthMain').value;
-        if(!val) { alert("Введите дату рождения"); return; }
-        let date = new Date(val);
-        renderMainCalc(date);
-    });
-    document.getElementById('calcPregBtn').addEventListener('click',()=>{
-        let val = document.getElementById('birthPreg').value;
-        if(!val) { alert("Введите дату для прогноза беременности"); return; }
-        let date = new Date(val);
-        renderPreg(date);
-    });
-    document.getElementById('calcCompatBtn').addEventListener('click',()=>{
-        let maleV = document.getElementById('birthMale').value;
-        let femaleV = document.getElementById('birthFemale').value;
-        if(!maleV||!femaleV) { alert("Введите даты обоих партнёров"); return; }
-        renderCompat(new Date(maleV), new Date(femaleV));
-    });
-    // Карта дня
-    document.getElementById('drawCardBtn').addEventListener('click',()=>{
-        let cards = ["🌙 Жрица Луны — интуиция и сны","✨ Звезда — надежда и вдохновение","🔥 Солнце — успех и радость","🕯 Отшельник — время мудрости","⚖️ Справедливость — баланс","🌀 Колесо Фортуны — перемены","💀 Смерть — трансформация","🎭 Маг — реализация замыслов"];
-        let random = cards[Math.floor(Math.random()*cards.length)];
-        let short = "Короткий прогноз: сегодня день магии и внутреннего света. Доверьтесь знакам.";
-        document.getElementById('cardResult').innerHTML = `<div style="font-size:2rem;">${random}</div><p>${short}</p><p>✨🌟 Реклама моего гайда "Личный Проноз" — глубокий разбор года рождения! 🌟✨</p>`;
-    });
-    // оплата
-    document.querySelectorAll('.pay-btn').forEach(btn => {
-        btn.addEventListener('click',(e)=>{
-            let type = btn.getAttribute('data-type');
-            if(type==='main') { unlockSection('main'); alert("Демо-оплата. Расшифровки открыты! (В реальном проекте - подключение платежей)"); applyPaymentUIs(); }
-            if(type==='preg') { unlockSection('preg'); alert("Доступ к прогнозу беременности открыт, появилась кнопка про блоки и файл"); applyPaymentUIs(); renderPreg(new Date(document.getElementById('birthPreg').value)); }
-            if(type==='compat') { unlockSection('compat'); alert("Совместимость открыта. Трактовки доступны!"); applyPaymentUIs(); let m=document.getElementById('birthMale').value,f=document.getElementById('birthFemale').value; if(m&&f) renderCompat(new Date(m),new Date(f)); }
-        });
-    });
-    // Инициализация интерфейса, скрытие консультации пока не оплачено
-    function init(){
-        applyPaymentUIs();
-        document.querySelectorAll('.nav-btn').forEach(btn=>{
-            btn.addEventListener('click',()=>{
-                let tab = btn.getAttribute('data-tab');
-                document.querySelectorAll('.calculator-panel').forEach(panel=>panel.classList.remove('active-panel'));
-                document.getElementById(tab).classList.add('active-panel');
-                document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-                btn.classList.add('active');
-            });
-        });
-        document.querySelector('.nav-btn').click(); // активируем первый таб
-    }
-    init();
-</script>
-</body>
-</html>
+    // оплата и инициализация
+    let payments={main:false, preg:false, compat:false};
+    function unlock(section){
+        payments[section]=true;
+        if(section==='main'){ document.getElementById('consultBlockMain').style.display='block'; document.getElementById('consultBlockMain').innerHTML=`<div class="offer-text">✨ Хочешь детально разобраться в показателях? ✨</div><a class="consult-btn" href="https://t.me/vedic_numerolog" target="_blank">📲 Запись на консультацию со скидкой 3500₽ вместо 5000₽</a>`; alert("Расшифровки открыты!");}
+        if(section==='preg'){ document.getElementById('afterPregBonus').innerHTML=`<button id="blockBtn" class="pay-btn">🔍 Узнай блоки на беременность</button><a href="#" id="fileLink" class="telegram-link">📥 Скачать файл-руководство</a>`; document.getElementById('blockBtn')?.addEventListener('click',()=>alert("Блоки: страхи, родовые сценарии. Рекомендуем консультацию.")); document.getElementById('fileLink')?.addEventListener('click',(e)=>{e.preventDefault(); alert("
